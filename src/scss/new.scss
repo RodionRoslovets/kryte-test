@@ -1,0 +1,504 @@
+@import './mixins.scss';
+
+$gradient:linear-gradient(to right, #fd712c 0%, #f31e7a);
+$light-blue-bg:#f7fafc;
+$pink:#f31f79;
+
+
+body, ul, li, p, h1, h2, h3, h4, h5, h6{
+    margin:0;
+    padding:0;
+}
+body{
+    font-family:'Roboto', sans-serif;
+    font-weight:300;
+    font-size:14px;
+    line-height:24px;
+    background:#fff;
+    color:#777;
+}
+h1, h2, h3, h4, h5, h6{
+    color:#222;
+}
+
+button{
+    cursor: pointer;
+}
+
+.container{
+    padding:0;
+}
+
+a{
+    text-decoration: none;
+}
+h1, h2 h3{
+    font-family:'Dosis', sans-serif;
+}
+
+.main{
+    background:  url('../img/iphones.png') no-repeat center right, $gradient;
+    color:#fff;
+    @media screen and(max-width:1200px){
+        background-size:50%, 100%;
+    }
+    @media screen and(max-width:767px){
+        background: $gradient;
+    }
+}
+.header{
+    padding:30px 0;
+    align-items:center;
+    &-button{
+        text-align: right;
+        &__button{
+            text-align: right;
+            padding:9px 30px;
+            background:#fff;
+            border:none;
+            border-radius:18px;
+            font-family:'Roboto', sans-serif;
+            font-weight:500;
+            font-size:14px;
+            &:focus{
+                outline:none;
+            }
+            @media screen and (max-width:767px) {
+                font-size:10px;
+            }
+        }        
+    }
+}
+.logo{
+    align-items: center;
+    &-name{
+        font-family:'Dosis', sans-serif;
+        font-weight: 700;
+        font-size: 36px;
+    }
+}
+
+.main{
+    padding-bottom: 192px;
+    @media screen and(max-width:1200px){
+        padding-bottom: 80px;
+    }
+    &-menu{
+        list-style:none;
+        width:100%;
+        @include flex(space-around, center);
+        &__link{
+            color:#fff;
+            font-weight:500;
+        }
+    }
+    &-screen{
+        padding:0;
+    }
+    &-heading{
+        font-size: 54px;
+        font-weight:600;
+        line-height: 60px;
+        margin: 110px 0 21px;
+        color:#fff;
+        @media screen and(max-width:991px){
+            font-size: 42px;
+        }
+        @media screen and(max-width:767px){
+            margin: 20px 0 20px;
+        }
+    }
+    &-list{
+        margin-left: 21px;
+        margin-top: 15px;
+        &__item{
+            padding-left: 14px;
+            margin-bottom: 10px;
+        }
+    }
+    &-button{        
+        padding: 23px 0;
+        &__button{
+            @extend .header-button__button;
+            border:5px solid #e25e2e;
+            border-radius: 22px;
+            padding: 10px 38px;
+        }
+    }
+}
+.advantages{
+    padding: 120px 0 0 0;
+    & .advantage{
+        margin-bottom:55px;
+        &-img{
+            color:$pink;
+            border:1px solid #ccc;
+            border-radius: 50%;
+            padding:25px;
+            font-size: 20px;
+        }
+        &-text{
+            padding-left:25px;
+        }
+        &-heading{
+            font-size:24px;
+            font-family:'Dosis', sans-serif;
+            color:#222;
+            letter-spacing: -.5px;
+            margin-bottom: 14px;
+        }
+    }
+    &-hr{
+        border:1px solid #eee;
+    }
+}
+.learning{
+    padding:120px 0 0 0 ;
+    &-heading{
+        font-family:'Dosis', sans-serif;
+        font-weight: 500;
+        font-size:36px;
+        line-height: 30px;
+        margin-bottom:30px;
+    }
+    & p{
+        color:#777;
+    }
+    &-img{
+        @media screen and(max-width:767px){
+            width:100%;
+        }
+    }
+    &-list{
+        margin:30px 20px;
+        &__item{
+            margin-bottom:20px;
+            padding-left:20px;
+            & i{
+                color:#222;
+            }
+        }
+    }    
+}
+
+.screenshots{
+    padding-top:120px;
+    background:$light-blue-bg;
+    &-heading{
+        text-align: center;
+        @extend .learning-heading;
+    }
+    &-description{
+        text-align: center;
+        margin-bottom:80px;       
+    }
+}
+
+.prices{
+    padding-top:120px;
+    padding-bottom:120px;
+    &-heading{
+        text-align: center;
+        @extend .learning-heading;
+    }
+    &-description{
+        text-align: center;
+        margin-bottom:80px;
+    }
+}
+.price-card{
+    background:$light-blue-bg;
+    @include transition;
+    margin-bottom: 10px;
+    @media screen and (max-width:991px) {
+        width:290px;
+        margin: 10px auto;
+    }
+    &__heading{
+        font-family:'Dosis', sans-serif;
+        font-weight: 500;
+        font-size:20px;
+        text-align: center;
+        padding:15px 0 20px 0;
+    }
+    &__price{
+        background:#fff;
+        @include flex(center);
+        @include transition;
+        position:relative;
+        height:120px;
+        & .dollar{
+            align-self:flex-start;
+        }
+    }
+    &__list{
+        list-style: none;
+        text-align: center;
+        margin-top:40px;
+        line-height: 30px;
+        padding: 0 40px;
+        &-item{
+            border-bottom:1px dashed #eee;
+            &:last-child{
+                border-bottom:none;
+            }
+        }        
+    }
+    &__link{
+        text-align: center;
+        margin-top:45px;
+        margin-bottom:15px;
+        & a{
+            color:#aaa;
+        }
+    }
+    &__button{
+        text-align: center;
+        & button{
+            @include transition;
+            background: #fff;
+            border:1px solid #eee;
+            border-radius:20px;
+            padding: 10px 40px 15px;            
+            margin-bottom: 40px;
+            font-family:'Roboto', sans-serif;
+            font-weight:500;
+            font-size:14px;
+            &:focus{
+                outline:none;
+            }
+        }
+    }
+    &:hover{
+        box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+        background:#fff;
+        & .price-card__price{
+            background:$gradient;
+            color:#fff;
+        }
+        & .price-card__button button{
+            background:$gradient;
+            color:#fff;
+        }
+        & .price-card__price .price-borders .border-left{
+            border-left:127px solid #fff;
+            @media screen and(max-width:1200px){
+                border-left:104px solid #fff;
+            }
+            @media screen and (max-width:991px){
+                border-left:145px solid #fff;
+            }
+        }
+        & .price-card__price .price-borders .border-right{
+            border-right:127px solid #fff;
+            @media screen and(max-width:1200px){
+                border-right:104px solid #fff;
+            }
+            @media screen and (max-width:991px){
+                border-right:145px solid #fff;
+            }
+        }
+    }
+}
+
+  
+.number{
+    @include flex(center);
+    align-self: flex-start;
+    margin-top:20px;
+    height:40px;
+    font-family:'Dosis', sans-serif;
+    font-weight:500;
+    & .price-total{
+        font-size:36px;
+    }
+    & .price-pMinute{
+        align-self: flex-end;
+    }
+}
+
+.price-borders{
+    @include flex();
+    position:absolute;
+    top:80px;
+    width:100%;
+    & .border-left, & .border-right{
+        flex-grow:1;
+        height:40px;
+        box-sizing: border-box;
+    }
+    & .border-left{
+        border-left:127px solid $light-blue-bg;
+        border-top:40px solid transparent;
+        @media screen and(max-width:1200px) {
+            border-left:104px solid $light-blue-bg;
+        }
+        @media screen and (max-width:991px){
+            border-left:145px solid $light-blue-bg;
+        }
+    }
+    & .border-right{
+        border-right:127px solid $light-blue-bg;
+        border-top:40px solid transparent;
+        @media screen and(max-width:1200px) {
+            border-right:104px solid $light-blue-bg;
+        }
+        @media screen and (max-width:991px){
+            border-right:145px solid $light-blue-bg;
+        }
+    }
+}
+
+
+.video{
+    background-image:url('../img/video.jpg'); 
+    background-position: center;  
+    padding: 160px 0;
+    & .play{
+        justify-content: center;
+        align-items: center;
+        &-icon{
+            color:#fff;
+            font-size:24px;
+            background:$gradient;
+            border-radius: 50%;
+            padding:25px 23px 24px 30px;
+        }
+    }
+}
+
+.feedback{
+    padding:120px 0;
+    &-heading{
+        text-align: center;
+        @extend .learning-heading;
+    }
+    &-description{
+        text-align: center;
+        margin-bottom:80px;
+    }
+    &-card{
+        @include transition;
+        background:$light-blue-bg;
+        padding:40px 50px 40px 40px;
+        &__user{
+            align-items: center;
+            margin-top:30px;
+        }
+        &:hover{
+            background:#fff;
+            box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+        }
+        @media screen and (max-width:991px){
+            margin-bottom: 20px;
+        }
+    }
+    
+}
+.user{
+    &-avatar{
+        margin-right:20px;
+    }
+    &-name{
+        font-family:'Dosis', sans-serif;
+        font-weight: 400;
+        font-size:18px;
+        color:#222;
+    }
+}
+
+.download{
+    background:$gradient;
+    padding:120px 0;
+    &-heading{
+        text-align: center;
+        @extend .learning-heading;
+        font-weight: 400;
+        color:#fff;
+    }
+    &-source{
+        background: #fff;
+        align-items:center;
+        padding:20px 30px;
+        border-radius:3px;
+        &__img{
+            margin-right:15px;
+        }
+        &__heading{
+            font-family: 'Dosis', sans-serif;
+            font-weight:600;
+            font-size: 30px;
+            margin-bottom:10px;
+        }
+        @media screen and (max-width:991px){
+            margin-bottom: 20px;
+        }
+    }
+
+}
+
+footer{
+    background:#222;
+    color:#fff;
+    padding: 55px 0;
+    & .social{
+        justify-content: center;
+        margin-bottom: 30px;
+        & a{
+            @include transition;
+            color:#fff;
+            &:not(:last-child){
+                margin-right: 30px;
+            }
+            &:hover{
+                color:$pink;
+            }
+        }
+    }
+    & .copyright{
+        text-align: center;
+    }
+}
+
+/*Слайдер*/
+.screenshots-slider{
+    width:100%;
+    margin: auto;
+    & .slick-center{
+        @include transition;
+        transform:scale(1)!important;
+    }
+}
+.slick-track{
+    display: flex;
+    align-items: center;
+}
+.slider-item{
+    & img{
+        width:100%;
+    }
+}
+.slick-slide{
+    @include transition;
+    transform:scale(.5);
+}
+.slick-prev, .slick-next{
+    position: absolute;
+    top:40%;
+    color:#777;
+    background:#fff;
+    border:1px solid #eee;
+    border-radius:50%;
+    padding:13px 15px;
+    @include transition;
+    &:hover{
+        background:$gradient;
+        color:#fff;
+    }
+}
+.slick-prev{
+    left:-4%;
+}
+.slick-next{
+    right:-4%;
+}
